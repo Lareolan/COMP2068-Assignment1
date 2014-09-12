@@ -14,13 +14,22 @@ html, body {
     font-size: 16px;
 }
 
-body > header, body > article, body > footer {
+body > header, body > main, body > footer {
     padding: 16px;
 }
 
-body header {
-    display: inline-block;
+body > header {
+    float: left;
     width: 200px;
+}
+
+body > main {
+    position: relative;
+    display: block;
+    height: 100%;
+    margin: 0 0 0 216px;
+    padding: 0;
+/*    background: rgba(255, 0, 0, 0.5); */
 }
 
 body header img {
@@ -43,13 +52,23 @@ nav ul li:hover {
     background-color: #cc6600;
 }
 
-#main {
+body article {
+    position: relative;
+    top: 16px;
+    height: calc(100% - 64px);
+    margin: 0 16px;
     border: 1px solid black;
-    display: inline-block;
-    vertical-align: top;
+    border-radius: 16px;
+/*    background: rgba(0, 0, 255, 0.5); */
 }
 
-body footer {
+body article section {
+    padding: 16px;
+/*    background: rgba(255, 0, 0, 0.5); */
+}
+
+body > footer {
     position: absolute;
     bottom: 0;
+    height: 16px;
 }
