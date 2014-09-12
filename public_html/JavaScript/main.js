@@ -5,3 +5,6 @@
  */
 
 
+$(document).ready({
+    
+});
