@@ -32,7 +32,6 @@ function hidePanel($nav, $panel, timeout) {
     var panelLeft = $panel.offset().left;
     var panelWidth = $panel.outerWidth();
     
-//    $panel.css({ position: "absolute" });
     var $animatedPanel = $panel.clone().appendTo("body");
     $animatedPanel.css({
         position: "absolute",
@@ -51,7 +50,7 @@ function hidePanel($nav, $panel, timeout) {
         top: navTop,
         bottom: navBottom,
         height: (navBottom - navTop)
-    }, timeout/2)/*.css("border-radius", "8px")*/.animate({
+    }, timeout/2).animate({
         left: navLeft,
         width: navWidth
     }, timeout/2);
@@ -63,7 +62,6 @@ function hidePanel($nav, $panel, timeout) {
     setTimeout(function() {
         $animatedPanel.remove();
     }, timeout);
-
 }
 
 function showPannel($nav, $panel, timeout) {
@@ -78,7 +76,6 @@ function showPannel($nav, $panel, timeout) {
     var panelLeft = $panel.offset().left;
     var panelWidth = $panel.outerWidth();
     
-//    $panel.css({ position: "absolute" });
     var $animatedPanel = $panel.clone().appendTo("body");
     $panel.hide();
 
@@ -93,11 +90,10 @@ function showPannel($nav, $panel, timeout) {
         "border-radius": "16px"
     });
 
-    
     $animatedPanel.animate({
         left: panelLeft,
         width: panelWidth
-    }, timeout/2)/*.css("border-radius", "16px")*/.animate({
+    }, timeout/2).animate({
         top: panelTop,
         bottom: panelBottom,
         height: (panelBottom - panelTop)
@@ -111,7 +107,6 @@ function showPannel($nav, $panel, timeout) {
         $animatedPanel.remove();
         $panel.show();
     }, timeout);
-    
 }
 
 
