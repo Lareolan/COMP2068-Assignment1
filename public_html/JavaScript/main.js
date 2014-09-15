@@ -3,9 +3,19 @@
     Author     : Konstantin Koton
 */
 
+var CONTENT_PAGES = {
+    home: "Content/welcome.html",
+    bio: "Content/biography.html",
+    projects: "Content/projects.html",
+    services: "Content/services.html",
+    repository: "Content/repository.html",
+    contact: "Content/contact.html"
+};
 
 $(document).ready(function() {
     var $panel = $("main article");
+    $($panel).load("Content/welcome.html");
+
     $("#navigation li").first().addClass("selected");
     $("#navigation li").click(function() {
         var $this = $(this);
@@ -23,6 +33,9 @@ $(document).ready(function() {
             $previous.removeClass("selected");
             showPannel($this, $panel, timeout);
         }, timeout*1.1);
+        
+        var $page = $this.data("page");
+        $($panel).load(CONTENT_PAGES[$page]);
 
         setTimeout(function() {
             $this.siblings().addBack().removeClass("disabled");
