@@ -12,6 +12,8 @@ var CONTENT_PAGES = {
     contact: "Content/contact.html"
 };
 
+var BASE_TITLE = "Konstantin's Portfolio Site";
+
 $(document).ready(function() {
     var $panel = $("main article");
     $($panel).load("Content/welcome.html");
@@ -22,6 +24,7 @@ $(document).ready(function() {
         var $previous = $this.siblings().filter(".selected");
         var timeout = 1000;
 
+        // If the clicked link is active (selected) or disabled then don't proceed to load the page
         if ($this.is(".disabled") || $this.is(".selected")) {
             return;
         }
@@ -33,9 +36,14 @@ $(document).ready(function() {
             $previous.removeClass("selected");
             showPannel($this, $panel, timeout);
         }, timeout*1.1);
-        
+
+        // Pick out the page, determine the URL and load the page as well as change the page's title
         var $page = $this.data("page");
-        $($panel).load(CONTENT_PAGES[$page]);
+        var jqxhr = $.get(CONTENT_PAGES[$page], function(data) {
+            var $data = $(data);
+            $($panel).html($data.filter("section"));
+            $(document).find("title").text(BASE_TITLE + " - " + $data.filter("title").text());
+        });
 
         setTimeout(function() {
             $this.siblings().addBack().removeClass("disabled");
@@ -43,6 +51,9 @@ $(document).ready(function() {
     });
 });
 
+/*
+ * Animate the hiding of the main panel
+ */
 function hidePanel($nav, $panel, timeout) {
     var navTop = $nav.offset().top;
     var navBottom = $nav.innerHeight() + navTop;
@@ -85,6 +96,9 @@ function hidePanel($nav, $panel, timeout) {
     }, timeout);
 }
 
+/*
+ * Animate the showing of the main panel
+ */
 function showPannel($nav, $panel, timeout) {
     var navTop = $nav.offset().top;
     var navBottom = $nav.innerHeight() + navTop;
