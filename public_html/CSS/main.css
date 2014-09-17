@@ -81,26 +81,72 @@ body > footer {
     background-color: #cc6633;
 }
 
+section h1 {
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+    font-size: 200%;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+}
+
+section p {
+    padding: 0.5em 0;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ul li {
+    margin-left: 2em;
+}
+
+ul ul {
+    list-style-type: square;
+    padding-top: 0.5em;
+}
+
+ul ul li {
+    margin-left: 2em;
+}
+
+address {
+    padding-left: 2em;
+}
+
+address.mail {
+    font-style: italic;
+}
+
+form fieldset {
+    padding: 1em;
+    border: 1px solid gray;
+}
+
+form label {
+    display: block;
+}
+
 @media (min-width: 1200px) {
     html, body {
-        font-size: 16px;
+        font-size: 24px;
     }
 
-    body > header, body > main, body > footer {
-        padding: 16px;
+/*    body > header, body > main, body > footer { */
+    body > header, body > footer {
+        padding: 24px;
     }
 
     body > header {
-        width: 200px;
+        width: 250px;
     }
 
     body > main {
-        margin: 0 0 0 216px;
+        margin: 0 0 0 calc(250px + 24px);
     }
 
     body header img {
-        height: 200px;
-        width: 200px;
+        height: 250px;
+        width: 250px;
     }
 
     nav ul li {
@@ -108,22 +154,23 @@ body > footer {
     }
 
     body article {
-/*        top: 16px; */
-        height: calc(100% - 64px);
-/*        margin: 0 16px; */
-        border-radius: 16px;
+        top: 24px;
+        height: calc(100% - 96px);
+        margin: 0 24px;
+        border-radius: 24px;
     }
 
     body article section {
-        padding: 16px;
+        padding: 24px;
     }
 
     body > footer {
-        height: 16px;
+        height: 24px;
     }
 
     .selected {
-        width: 183px;
+/*        width: 225px; */
+        width: calc(250px - 24px - 1px);
     }
 }
 
@@ -132,7 +179,8 @@ body > footer {
         font-size: 12px;
     }
 
-    body > header, body > main, body > footer {
+/*    body > header, body > main, body > footer { */
+    body > header, body > footer {
         padding: 12px;
     }
 
@@ -141,7 +189,7 @@ body > footer {
     }
 
     body > main {
-        margin: 0 0 0 112px;
+        margin: 0 0 0 calc(100px + 12px);
     }
 
     body header img {
@@ -154,9 +202,9 @@ body > footer {
     }
 
     body article {
-/*        top: 12px; */
+        top: 12px;
         height: calc(100% - 48px);
-/*        margin: 0 12px; */
+        margin: 0 12px;
         border-radius: 12px;
     }
 
@@ -169,7 +217,8 @@ body > footer {
     }
 
     .selected {
-        width: 87px;
+/*        width: 87px; */
+        width: calc(100px - 12px - 1px);
     }
 }
 
@@ -178,7 +227,8 @@ body > footer {
         font-size: 8px;
     }
 
-    body > header, body > main, body > footer {
+/*    body > header, body > main, body > footer { */
+    body > header, body > footer {
         padding: 8px;
     }
 
@@ -187,7 +237,7 @@ body > footer {
     }
 
     body > main {
-        margin: 0 0 0 88px;
+        margin: 0 0 0 calc(80px + 8px);
     }
 
     body header img {
@@ -200,9 +250,9 @@ body > footer {
     }
 
     body article {
-/*        top: 8px; */
+        top: 8px;
         height: calc(100% - 32px);
-/*        margin: 0 8px; */
+        margin: 0 8px;
         border-radius: 8px;
     }
 
@@ -215,6 +265,7 @@ body > footer {
     }
 
     .selected {
-        width: 71px;
+/*        width: 71px; */
+        width: calc(80px - 8px - 1px);
     }
 }
