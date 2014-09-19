@@ -15,8 +15,21 @@ var CONTENT_PAGES = {
 var BASE_TITLE = "Konstantin's Portfolio Site";
 
 $(document).ready(function() {
-    var $panel = $("main article");
-    $($panel).load("Content/welcome.html");
+    var $panel = $("main > article");
+//    $($panel).load("Content/welcome.html");
+    loadPage(CONTENT_PAGES.contact, $panel);
+
+    // Initialize jScrollPane plugin
+    var radius = parseInt($panel.css("border-top-right-radius"));
+    $panel.niceScroll({
+//        railoffset: { left: 0 },
+        cursorwidth: radius*2,
+//        cursorfixedheight: 24,
+        cursorborderradius: radius*2,
+        cursoropacitymax: 0.5,
+        cursoropacitymin: 0
+    });
+    
 
     $("#navigation li").first().addClass("selected");
     $("#navigation li").click(function() {
@@ -39,12 +52,9 @@ $(document).ready(function() {
 
         // Pick out the page, determine the URL and load the page as well as change the page's title
         var $page = $this.data("page");
-        var jqxhr = $.get(CONTENT_PAGES[$page], function(data) {
-            var $data = $(data);
-            $($panel).html($data.filter("section"));
-            $(document).find("title").text(BASE_TITLE + " - " + $data.filter("title").text());
-        });
-
+        var $url = CONTENT_PAGES[$page];
+        loadPage($url, $panel);
+        
         setTimeout(function() {
             $this.siblings().addBack().removeClass("disabled");
         }, timeout*2.1);
@@ -144,5 +154,11 @@ function showPannel($nav, $panel, timeout) {
     }, timeout);
 }
 
-
+function loadPage($url, $container) {
+    $.get($url, function(data) {
+        var $data = $(data);
+        $($container).html($data.filter("section"));
+        $(document).find("title").text(BASE_TITLE + " - " + $data.filter("title").text());
+    });
+}
 

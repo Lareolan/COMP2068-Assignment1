@@ -6,6 +6,8 @@ html, body {
     position: relative;
     height: 100%;
     width: 100%;
+    font-family: 'VT323';
+    background: #9bddff;
 }
 
 body > header {
@@ -30,9 +32,11 @@ nav ul {
 nav ul li {
     position: relative;
     border: 1px solid black;
-    padding: 0.5em 1em;
-    margin: 0.5em 0;
+    padding: 0.25em 1em;
+    margin: 0.25em 0;
     cursor: pointer;
+    background: white;
+    transition: background 0.4s linear;
 }
 
 nav ul li:hover {
@@ -50,9 +54,10 @@ nav ul li.disabled:hover {
 
 body article {
     position: relative;
+    background: white;
     border: 1px solid black;
     z-index: 0;
-    overflow: hidden;
+    overflow: auto;
 }
 
 body article section {
@@ -118,12 +123,34 @@ address.mail {
 }
 
 form fieldset {
+    display: inline-block;
     padding: 1em;
     border: 1px solid gray;
+    width: 90%;
 }
 
 form label {
+    display: inline-block;
+    width: 4em;
+    vertical-align: top;
+}
+
+form textarea {
+    margin-top: 4px;
+}
+
+div.form_input {
     display: block;
+}
+
+#name, #email, #subject, #message {
+    background: #9bddff;
+    width: 29em;
+}
+
+#message {
+    width: 30em;
+    height: 10em;
 }
 
 @media (min-width: 1200px) {
@@ -220,11 +247,15 @@ form label {
 /*        width: 87px; */
         width: calc(100px - 12px - 1px);
     }
+
+    #name, #email, #subject, #message {
+        width: 100%;
+    }
 }
 
 @media (max-height: 500px) {
     html, body {
-        font-size: 8px;
+        font-size: 12px;
     }
 
 /*    body > header, body > main, body > footer { */
@@ -237,7 +268,7 @@ form label {
     }
 
     body > main {
-        margin: 0 0 0 calc(80px + 8px);
+        margin: 0 0 0 calc(80px + 12px);
     }
 
     body header img {
@@ -266,6 +297,6 @@ form label {
 
     .selected {
 /*        width: 71px; */
-        width: calc(80px - 8px - 1px);
+        width: calc(80px - 12px - 1px);
     }
 }

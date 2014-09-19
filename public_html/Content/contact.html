@@ -20,17 +20,32 @@
                 L4M 6Y3
             </address>
             <p>Lastly, you may also fill out the form below.</p>
-            <form>
+            <form action="mail.php" method="post">
                 <fieldset>
                     <legend>Contact Me Form</legend>
-                    <label>Name: <input type="text" name="name" /></label>
-                    <label>E-Mail Address: <input type="email" name="email" /></label>
-                    <label>Subject: <input type="text" name="subject" /></label>
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" cols="50" rows="10"></textarea>
+                    <div class="form_input">
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="name" placeholder="Full Name" />
+                    </div>
+                    <div class="form_input">
+                        <label for="email">E-Mail: </label>
+                        <input type="email" name="email" id="email" placeholder="E-Mail Address" />
+                    </div>
+                    <div class="form_input">
+                        <label for="subject">Subject: </label>
+                        <input type="text" name="subject" id="subject" placeholder="Subject" />
+                    </div>
+                    <div class="form_input">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+                    </div>
                     <br />
+<!--
                     <input type="submit" name="submit" value="Send">
                     <input type="reset" name="reset" value="Clear">
+-->
+                    <button>Send</button>
+                    <button>Clear</button>
                 </fieldset>
             </form>
         </section>
