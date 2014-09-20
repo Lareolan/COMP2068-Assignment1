@@ -17,7 +17,7 @@ var BASE_TITLE = "Konstantin's Portfolio Site";
 $(document).ready(function() {
     var $panel = $("main > article");
 //    $($panel).load("Content/welcome.html");
-    loadPage(CONTENT_PAGES.contact, $panel);
+    loadPage(CONTENT_PAGES.home, $panel);
 
     // Initialize jScrollPane plugin
     var radius = parseInt($panel.css("border-top-right-radius"));

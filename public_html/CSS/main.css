@@ -6,7 +6,7 @@ html, body {
     position: relative;
     height: 100%;
     width: 100%;
-    font-family: 'VT323';
+    font-family: 'VT323', Consolas;
     background: #9bddff;
 }
 
@@ -203,7 +203,7 @@ div.form_input {
 
 @media (max-width: 1199px) {
     html, body {
-        font-size: 12px;
+        font-size: 24px;
     }
 
 /*    body > header, body > main, body > footer { */
@@ -212,16 +212,16 @@ div.form_input {
     }
 
     body > header {
-        width: 100px;
+        width: 150px;
     }
 
     body > main {
-        margin: 0 0 0 calc(100px + 12px);
+        margin: 0 0 0 calc(150px + 24px);
     }
 
     body header img {
-        height: 100px;
-        width: 100px;
+        height: 150px;
+        width: 150px;
     }
 
     nav ul li {
@@ -245,7 +245,7 @@ div.form_input {
 
     .selected {
 /*        width: 87px; */
-        width: calc(100px - 12px - 1px);
+        width: calc(150px - 24px - 1px);
     }
 
     #name, #email, #subject, #message {
