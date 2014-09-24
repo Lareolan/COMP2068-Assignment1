@@ -30,7 +30,6 @@ $(document).ready(function() {
         cursoropacitymin: 0
     });
     
-
     $("#navigation li").first().addClass("selected");
     $("#navigation li").click(function() {
         var $this = $(this);
@@ -159,6 +158,14 @@ function loadPage($url, $container) {
         var $data = $(data);
         $($container).html($data.filter("section"));
         $(document).find("title").text(BASE_TITLE + " - " + $data.filter("title").text());
+
+        // Initialize bxSlider plugin if a slider is present on the newly loaded page
+        $(".bxslider").bxSlider({
+            captions: true,
+            auto: true,
+            autoHover: true,
+            pause: 2000
+        });
     });
 }
 
