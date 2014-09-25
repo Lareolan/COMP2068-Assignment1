@@ -227,8 +227,25 @@ function loadPage($url, $container) {
             captions: true,
             auto: true,
             autoHover: true,
-            pause: 2000
+            pause: 2000,
+            slideWidth: 720
         });
+
+
+        // If the page loaded is the contact page, bind the click events for the buttons to reset or send the form data
+        var $contactForm = $("form#contact");
+        if ($contactForm.length !== 0) {
+            $("button#clear").click(function() {
+                $contactForm[0].reset();
+            });
+            $("button#send").click(function(e) {
+                e.preventDefault();
+                $.post("mail.php", $contactForm.serialize(), function() {
+                    $contactForm[0].reset();
+                    alert("Your message was successfully sent.");
+                });
+            });
+        }
     });
 }
 
