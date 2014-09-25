@@ -5,6 +5,7 @@
 html, body {
     position: relative;
     height: 100%;
+    min-height: 100%;
     width: 100%;
     font-family: 'VT323', Consolas;
     background: #9bddff;
@@ -66,6 +67,7 @@ body article section {
 
 body > footer {
     position: absolute;
+    display: block;
     bottom: 0;
 }
 
@@ -153,6 +155,78 @@ div.form_input {
     height: 10em;
 }
 
+section.footer {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+section.footer ul {
+    list-style-type: none;
+}
+
+section.footer ul li {
+    display: inline-block;
+    margin: 0;
+    width: 45%;
+    cursor: pointer;
+}
+
+section.footer div.legal ul li {
+    display: inline-block;
+    width: 100%;
+}
+
+section.footer ul li:first-child {
+    display: inline-block;
+    width: 100%;
+}
+
+section.footer ul li img {
+    width: 48px;
+    height: 48px;
+}
+
+section.footer div.copy {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+}
+
+section.footer div.legal {
+    position: absolute;
+    display: inline-block;
+    width: 10em;
+}
+
+section.footer div.social {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+    width: 10em;
+}
+
+div.social .button, div.legal .button {
+    border: 1px solid black;
+    border-radius: 8px;    
+}
+
+section.footer div.legal .closed:hover, section.footer div.social .closed:hover {
+    cursor: pointer;
+    background: white;
+    transition: background 0.4s linear;
+}
+
+section.footer .button.open {
+    display: none;
+    background: white;
+    overflow: hidden;
+}
+
+section.footer .open ul:hover li a {
+    background: #9bddff;
+}
+
 @media (min-width: 1200px) {
     html, body {
         font-size: 24px;
@@ -174,7 +248,7 @@ div.form_input {
     body header img {
         height: 250px;
         width: 250px;
-    }
+    } 
 
     nav ul li {
         border-radius: 8px;
@@ -192,6 +266,7 @@ div.form_input {
     }
 
     body > footer {
+        width: calc(100% - 48px);
         height: 24px;
     }
 
@@ -240,6 +315,7 @@ div.form_input {
     }
 
     body > footer {
+        width: calc(100% - 24px);
         height: 12px;
     }
 
@@ -292,6 +368,7 @@ div.form_input {
     }
 
     body > footer {
+        width: calc(100% - 16px);
         height: 8px;
     }
 

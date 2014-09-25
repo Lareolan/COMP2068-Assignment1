@@ -9,13 +9,20 @@ and open the template in the editor.
         <title>Konstantin's Portfolio Site</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
         <!-- Load reset.css to reset all browser defaults for all elements -->
         <link href="CSS/reset.css" rel="stylesheet" type="text/css" />
+        
         <!-- Load the webfont VT323 from Google -->
         <link href='http://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+        
         <!-- bxSlider CSS file -->
         <link href="CSS/jquery.bxslider.css" rel="stylesheet" />
+        
+        <!-- Load the primary stylesheet for the application -->
         <link href="CSS/main.css" rel="stylesheet" type="text/css" />
+        
+        <!-- Load the HTML5 Shiv to prop up older browsers that don't have support for HTML5 -->
         <script src="JavaScript/html5shiv.min.js" type="text/javascript"></script>
     </head>
     <body>
@@ -41,15 +48,43 @@ and open the template in the editor.
         </main>
         <footer role="contentinfo">
 <!--            <p><a href="Legal/privacypolicy.html">Privacy Policy</a></p> -->
-            <p>&copy;2014 - Y2K Software &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; LEGAL  &nbsp;
-                &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; KEEP CONNECTED</p>
+            <section class="footer">
+                <div class="copy">&copy;2014 - Y2K Software</div>
+                <div class="legal">
+                    <ul class="button closed">
+                        <li>LEGAL</li>
+                    </ul>
+                    <ul class="button open">
+                        <li>LEGAL</li>
+                        <li data-page="privacy"><a>Privacy Policy</a></li>
+                        <li data-page="tos"><a>Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="social">
+                    <ul class="button closed">
+                        <li>KEEP CONNECTED</li>
+                    </ul>
+                    <ul class="button open">
+                        <li>KEEP CONNECTED</li>
+                        <li><a><img src="Images/facebook_like_button.svg" alt="Facebook" /></a></li>
+                        <li><a><img src="Images/google_plus_button.svg" alt="Google+" /></a></li>
+                        <li><a><img src="Images/linkedin_button.svg" alt="LinkedIn" /></a></li>
+                        <li><a><img src="Images/twitter_button.svg" alt="Twitter" /></a></li>
+                    </ul>
+                </div>
+            </section>
         </footer>
+
         <!-- Load jQuery 2.1.1 from google CDN -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
         <!-- Load jQuery nicescroll plugin from cloudflare CDN -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/nicescroll/3.5.4/jquery.nicescroll.min.js"></script>
+
         <!-- bxSlider Javascript file -->
         <script src="JavaScript/jquery.bxslider.min.js"></script>
+        
+        <!-- Load primary script file for this application -->
         <script src="JavaScript/main.js" type="text/javascript"></script>
     </body>
 </html>

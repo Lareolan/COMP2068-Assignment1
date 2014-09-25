@@ -9,10 +9,14 @@ var CONTENT_PAGES = {
     projects: "Content/projects.html",
     services: "Content/services.html",
     repository: "Content/repository.html",
-    contact: "Content/contact.html"
+    contact: "Content/contact.html",
+    privacy: "Legal/privacypolicy.html",
+    tos: "Legal/termsofuse.html"
 };
 
 var BASE_TITLE = "Konstantin's Portfolio Site";
+
+var mouseTimer = null;
 
 $(document).ready(function() {
     var $panel = $("main > article");
@@ -40,6 +44,15 @@ $(document).ready(function() {
         if ($this.is(".disabled") || $this.is(".selected")) {
             return;
         }
+        
+        if ($previous.length === 0) {
+            $this.addClass("selected");
+            var $page = $this.data("page");
+            var $url = CONTENT_PAGES[$page];
+            loadPage($url, $panel);
+            showPannel($this, $panel, timeout);
+            return;
+        }
 
         $this.siblings().addBack().addClass("disabled");
         hidePanel($previous, $panel, timeout);
@@ -57,6 +70,56 @@ $(document).ready(function() {
         setTimeout(function() {
             $this.siblings().addBack().removeClass("disabled");
         }, timeout*2.1);
+    });
+    
+    $("div.legal li").click(function() {
+        var $this = $(this);
+        var $page = $this.data("page");
+        if ($page !== undefined) {
+            var $url = CONTENT_PAGES[$page];
+            loadPage($url, $panel);
+            $("#navigation li").filter(".selected").removeClass("selected");
+        }
+    });
+    
+    $("div.social ul.button.closed").click(function() {
+        showSocial(1000);
+    });
+    
+    $("div.social ul.button.closed:not(:animated)").mouseenter(function(){
+        mouseTimer = setTimeout(function() {
+            showSocial(1000);
+        }, 300);
+    }).mouseleave(function() {
+        clearTimeout(mouseTimer);
+    });
+
+    $("div.social ul.button.open:not(:animated)").mouseleave(function() {
+        mouseTimer = setTimeout(function() {
+            hideSocial(1000);
+        }, 500);
+    }).mouseenter(function() {
+        clearTimeout(mouseTimer);
+    });
+
+    $("div.legal ul.button.closed").click(function() {
+        showLegal(1000);
+    });
+    
+    $("div.legal ul.button.closed:not(:animated)").mouseenter(function(){
+        mouseTimer = setTimeout(function() {
+            showLegal(1000);
+        }, 300);
+    }).mouseleave(function() {
+        clearTimeout(mouseTimer);
+    });
+
+    $("div.legal ul.button.open:not(:animated)").mouseleave(function() {
+        mouseTimer = setTimeout(function() {
+            hideLegal(1000);
+        }, 500);
+    }).mouseenter(function() {
+        clearTimeout(mouseTimer);
     });
 });
 
@@ -166,6 +229,112 @@ function loadPage($url, $container) {
             autoHover: true,
             pause: 2000
         });
+    });
+}
+
+function showSocial(duration) {
+    var $socialClosed = $("div.social ul.button.closed");
+    var $socialOpen = $("div.social ul.button.open");
+
+    // Clear any queued animations
+    $socialOpen.stop(true, true);
+    $socialClosed.stop(true, true);
+    
+    var height = $socialClosed.outerHeight();
+    var width = $socialClosed.outerWidth();
+    $socialOpen.show();
+    var newHeight = $socialOpen.outerHeight();
+    var delta = newHeight - height;
+    
+    $socialOpen.css({
+        display: "inline-block",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        height: height,
+        width: width
+    });
+    $socialClosed.hide();
+    
+    $socialOpen.animate({
+        top: -delta,
+        height: newHeight
+    }, duration);
+}
+
+function hideSocial(duration) {
+    var $socialClosed = $("div.social ul.button.closed");
+    var $socialOpen = $("div.social ul.button.open");
+
+    // Clear any queued animations
+    $socialOpen.stop(true, true);
+    $socialClosed.stop(true, true);
+    
+    $socialClosed.show();
+    var newHeight = $socialClosed.outerHeight();
+    
+    $socialOpen.animate({
+        top: 0,
+        height: newHeight
+    }, {
+        duration: duration,
+        complete: function() {
+            $socialOpen.removeAttr("style");
+            $socialClosed.removeAttr("style");
+        }
+    });
+}
+
+function showLegal(duration) {
+    var $legalClosed = $("div.legal ul.button.closed");
+    var $legalOpen = $("div.legal ul.button.open");
+
+    // Clear any queued animations
+    $legalOpen.stop(true, true);
+    $legalClosed.stop(true, true);
+    
+    var height = $legalClosed.outerHeight();
+    var width = $legalClosed.outerWidth();
+    $legalOpen.show();
+    var newHeight = $legalOpen.outerHeight();
+    var delta = newHeight - height;
+    
+    $legalOpen.css({
+        display: "inline-block",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        height: height,
+        width: width
+    });
+    $legalClosed.hide();
+    
+    $legalOpen.animate({
+        top: -delta,
+        height: newHeight
+    }, duration);
+}
+
+function hideLegal(duration) {
+    var $legalClosed = $("div.legal ul.button.closed");
+    var $legalOpen = $("div.legal ul.button.open");
+
+    // Clear any queued animations
+    $legalOpen.stop(true, true);
+    $legalClosed.stop(true, true);
+    
+    $legalClosed.show();
+    var newHeight = $legalClosed.outerHeight();
+    
+    $legalOpen.animate({
+        top: 0,
+        height: newHeight
+    }, {
+        duration: duration,
+        complete: function() {
+            $legalOpen.removeAttr("style");
+            $legalClosed.removeAttr("style");
+        }
     });
 }
 
