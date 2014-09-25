@@ -16,7 +16,8 @@ var CONTENT_PAGES = {
 
 var BASE_TITLE = "Konstantin's Portfolio Site";
 
-var mouseTimer = null;
+var mouseTimer = null;      // Used for mouseenter/mouseleave timers
+var slider = null;          // Holds the bxSlider instance
 
 $(document).ready(function() {
     var $panel = $("main > article");
@@ -217,18 +218,23 @@ function showPannel($nav, $panel, timeout) {
 }
 
 function loadPage($url, $container) {
+    // Destroy the slider if it's active
+    if (slider) {
+        slider.destroySlider();
+    }
+
     $.get($url, function(data) {
         var $data = $(data);
         $($container).html($data.filter("section"));
         $(document).find("title").text(BASE_TITLE + " - " + $data.filter("title").text());
 
         // Initialize bxSlider plugin if a slider is present on the newly loaded page
-        $(".bxslider").bxSlider({
+        slider = $(".bxslider").bxSlider({
             captions: true,
             auto: true,
             autoHover: true,
             pause: 2000,
-            slideWidth: 720
+            slideWidth: 500
         });
 
 
@@ -246,6 +252,13 @@ function loadPage($url, $container) {
                 });
             });
         }
+
+        // If the page loaded is the welcoming page, bind the click event for the "Call to Action" button
+        $("a.call-to-action").click(function(e) {
+            e.preventDefault();
+            var page = $(this).data("page");
+            $("#navigation li").filter("."+page).click();
+        });
     });
 }
 
