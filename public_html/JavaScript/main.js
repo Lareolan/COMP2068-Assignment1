@@ -21,7 +21,7 @@ var slider = null;          // Holds the bxSlider instance
 
 $(document).ready(function() {
     var $panel = $("main > article");
-    loadPage(CONTENT_PAGES.home, $panel);
+    loadPage(CONTENT_PAGES.projects, $panel);
 
     // Initialize jScrollPane plugin
     var radius = parseInt($panel.css("border-top-right-radius"));
@@ -31,6 +31,9 @@ $(document).ready(function() {
         cursoropacitymax: 0.5,
         cursoropacitymin: 0
     });
+    
+    // Initialize jQuery placeholder plugin
+    $("input, textarea").placeholder();
     
     $("#navigation li").first().addClass("selected");
     $("#navigation li").click(function() {
@@ -80,11 +83,11 @@ $(document).ready(function() {
         }
     });
     
-    $("div.social ul.button.closed").click(function() {
+    $("div.social ul.sliding-panel.closed").click(function() {
         showSocial(1000);
     });
     
-    $("div.social ul.button.closed:not(:animated)").mouseenter(function(){
+    $("div.social ul.sliding-panel.closed:not(:animated)").mouseenter(function(){
         mouseTimer = setTimeout(function() {
             showSocial(1000);
         }, 300);
@@ -92,7 +95,7 @@ $(document).ready(function() {
         clearTimeout(mouseTimer);
     });
 
-    $("div.social ul.button.open:not(:animated)").mouseleave(function() {
+    $("div.social ul.sliding-panel.open:not(:animated)").mouseleave(function() {
         mouseTimer = setTimeout(function() {
             hideSocial(1000);
         }, 500);
@@ -100,11 +103,11 @@ $(document).ready(function() {
         clearTimeout(mouseTimer);
     });
 
-    $("div.legal ul.button.closed").click(function() {
+    $("div.legal ul.sliding-panel.closed").click(function() {
         showLegal(1000);
     });
     
-    $("div.legal ul.button.closed:not(:animated)").mouseenter(function(){
+    $("div.legal ul.sliding-panel.closed:not(:animated)").mouseenter(function(){
         mouseTimer = setTimeout(function() {
             showLegal(1000);
         }, 300);
@@ -112,7 +115,7 @@ $(document).ready(function() {
         clearTimeout(mouseTimer);
     });
 
-    $("div.legal ul.button.open:not(:animated)").mouseleave(function() {
+    $("div.legal ul.sliding-panel.open:not(:animated)").mouseleave(function() {
         mouseTimer = setTimeout(function() {
             hideLegal(1000);
         }, 500);
@@ -269,8 +272,8 @@ function loadPage($url, $container) {
 }
 
 function showSocial(duration) {
-    var $socialClosed = $("div.social ul.button.closed");
-    var $socialOpen = $("div.social ul.button.open");
+    var $socialClosed = $("div.social ul.sliding-panel.closed");
+    var $socialOpen = $("div.social ul.sliding-panel.open");
 
     // Clear any queued animations
     $socialOpen.stop(true, true);
@@ -299,8 +302,8 @@ function showSocial(duration) {
 }
 
 function hideSocial(duration) {
-    var $socialClosed = $("div.social ul.button.closed");
-    var $socialOpen = $("div.social ul.button.open");
+    var $socialClosed = $("div.social ul.sliding-panel.closed");
+    var $socialOpen = $("div.social ul.sliding-panel.open");
 
     // Clear any queued animations
     $socialOpen.stop(true, true);
@@ -322,8 +325,8 @@ function hideSocial(duration) {
 }
 
 function showLegal(duration) {
-    var $legalClosed = $("div.legal ul.button.closed");
-    var $legalOpen = $("div.legal ul.button.open");
+    var $legalClosed = $("div.legal ul.sliding-panel.closed");
+    var $legalOpen = $("div.legal ul.sliding-panel.open");
 
     // Clear any queued animations
     $legalOpen.stop(true, true);
@@ -352,8 +355,8 @@ function showLegal(duration) {
 }
 
 function hideLegal(duration) {
-    var $legalClosed = $("div.legal ul.button.closed");
-    var $legalOpen = $("div.legal ul.button.open");
+    var $legalClosed = $("div.legal ul.sliding-panel.closed");
+    var $legalOpen = $("div.legal ul.sliding-panel.open");
 
     // Clear any queued animations
     $legalOpen.stop(true, true);
