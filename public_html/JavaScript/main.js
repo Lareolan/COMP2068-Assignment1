@@ -21,15 +21,12 @@ var slider = null;          // Holds the bxSlider instance
 
 $(document).ready(function() {
     var $panel = $("main > article");
-//    $($panel).load("Content/welcome.html");
     loadPage(CONTENT_PAGES.home, $panel);
 
     // Initialize jScrollPane plugin
     var radius = parseInt($panel.css("border-top-right-radius"));
     $panel.niceScroll({
-//        railoffset: { left: 0 },
         cursorwidth: radius*2,
-//        cursorfixedheight: 24,
         cursorborderradius: radius*2,
         cursoropacitymax: 0.5,
         cursoropacitymin: 0
@@ -214,28 +211,37 @@ function showPannel($nav, $panel, timeout) {
     setTimeout(function() {
         $animatedPanel.remove();
         $panel.show();
+        if (slider) {
+            slider.reloadSlider();
+        }
     }, timeout);
 }
 
 function loadPage($url, $container) {
+    /*
     // Destroy the slider if it's active
     if (slider) {
         slider.destroySlider();
+        slider = null;
+        console.log("Destroyed bxSlider");
     }
-
+*/
     $.get($url, function(data) {
         var $data = $(data);
         $($container).html($data.filter("section"));
         $(document).find("title").text(BASE_TITLE + " - " + $data.filter("title").text());
 
         // Initialize bxSlider plugin if a slider is present on the newly loaded page
-        slider = $(".bxslider").bxSlider({
-            captions: true,
-            auto: true,
-            autoHover: true,
-            pause: 2000,
-            slideWidth: 500
-        });
+        var $slider = $container.find(".bxslider");
+        if ($slider.length !== 0) {
+            slider = $slider.bxSlider({
+                captions: true,
+                auto: true,
+                autoHover: true,
+                pause: 2000,
+                slideWidth: 500
+            });
+        }
 
 
         // If the page loaded is the contact page, bind the click events for the buttons to reset or send the form data

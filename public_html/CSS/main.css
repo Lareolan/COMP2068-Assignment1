@@ -231,8 +231,14 @@ section.footer .open li.white:hover {
     background: white;
 }
 
-strong {
+h3 {
+    margin-top: 0.5em;
+    font-size: 140%;
     font-weight: bold;
+}
+
+em {
+    font-style: italic;
 }
 
 p.call-to-action {
