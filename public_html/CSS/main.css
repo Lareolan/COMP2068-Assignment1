@@ -241,6 +241,10 @@ em {
     font-style: italic;
 }
 
+strong {
+    font-weight: bold;
+}
+
 p.call-to-action {
     text-align: center;
 }
