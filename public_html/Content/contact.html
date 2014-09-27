@@ -1,53 +1,48 @@
-<!DOCTYPE html>
 <!--
-    This page contains a form to contact me
+    Filename: contact.html
+    Author: Konstantin Koton
+    Website: Konstantin's Portfolio Site
+    Created on : 27-Sep-2014, 2:00:00 PM
+    This page contains a form to contact me.
 -->
-<html>
-    <head>
-        <title>Contact Me</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <section>
-            <h1>CONTACT</h1>
-            <p>You can contact me at:</p>
-            <address class="email"><a href="mailto:konstantin_koton@yahoo.com">konstantin_koton@yahoo.com</a></address>
-            <p>Or by mail at: </p>
-            <address class="mail">
-                37 Monique Cres. <br />
-                Barrie, ON <br />
-                L4M 6Y3
-            </address>
-            <p>Lastly, you may also fill out the form below:</p>
-            <form action="mail.php" method="post" id="contact">
-                <fieldset>
-                    <legend>My Contact Form</legend>
-                    <div class="form_input">
-                        <label for="name">Name: </label>
-                        <input type="text" name="name" id="name" placeholder="Full Name" />
-                    </div>
-                    <div class="form_input">
-                        <label for="email">E-Mail: </label>
-                        <input type="email" name="email" id="email" placeholder="E-Mail Address" />
-                    </div>
-                    <div class="form_input">
-                        <label for="subject">Subject: </label>
-                        <input type="text" name="subject" id="subject" placeholder="Subject" />
-                    </div>
-                    <div class="form_input">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" placeholder="Write your message here"></textarea>
-                    </div>
-                    <br />
-<!--
-                    <input type="submit" name="submit" value="Send">
-                    <input type="reset" name="reset" value="Clear">
--->
-                    <button id="send">Send</button>
-                    <button id="clear">Clear</button>
-                </fieldset>
-            </form>
-        </section>
-    </body>
-</html>
+<title>Contact Me</title>
+<section>
+    <!-- Contact information -->
+    <h1>CONTACT</h1>
+    <p>You can contact me at:</p>
+    <address class="email"><a href="mailto:konstantin_koton@yahoo.com">konstantin_koton@yahoo.com</a></address>
+    <p>Or by mail at: </p>
+    <address class="mail">
+        37 Monique Cres. <br />
+        Barrie, ON <br />
+        L4M 6Y3
+    </address>
+    
+    <p>Lastly, you may also fill out the form below:</p>
+    
+    <!-- Contact form -->
+    <form action="mail.php" method="post" id="contact">
+        <fieldset>
+            <legend>My Contact Form</legend>
+            <div class="form_input">
+                <label for="name">Name: </label>
+                <input type="text" name="name" id="name" placeholder="Full Name" />
+            </div>
+            <div class="form_input">
+                <label for="email">E-Mail: </label>
+                <input type="email" name="email" id="email" placeholder="E-Mail Address" />
+            </div>
+            <div class="form_input">
+                <label for="subject">Subject: </label>
+                <input type="text" name="subject" id="subject" placeholder="Subject" />
+            </div>
+            <div class="form_input">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write your message here"></textarea>
+            </div>
+            <br />
+            <button id="send">Send</button>
+            <button id="clear">Clear</button>
+        </fieldset>
+    </form>
+</section>

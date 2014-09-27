@@ -1,5 +1,11 @@
+<!-- 
+    Filename: mail.php
+    Author: Konstantin Koton
+    Website: Konstantin's Portfolio Site
+    Created on : 27-Sep-2014, 2:00:00 PM
+    This PHP file is a simple E-Mail script
+-->
 <?php
-
     $to = "200278361@student.georgianc.on.ca";
 
     $subject = $_POST["subject"];

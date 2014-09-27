@@ -1,6 +1,9 @@
 /* 
+    Filename: main.js
+    Author: Konstantin Koton
+    Website: Konstantin's Portfolio Site
     Created on : 11-Sep-2014, 8:03:12 PM
-    Author     : Konstantin Koton
+    This file contains the primary JavaScript code for the site.
 */
 
 // This JavaScript Object links pageIDs and URLs

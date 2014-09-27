@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <!--
+    Filename: index.html
+    Author: Konstantin Koton
+    Website: Konstantin's Portfolio Site
+    Created on : 11-Sep-2014, 8:00:23 PM
     This is the landing page. All the data is served via this page and its scripts using AJAX loading.
 -->
 <html>
@@ -24,6 +28,7 @@
         <script src="JavaScript/html5shiv.min.js" type="text/javascript"></script>
     </head>
     <body>
+        <!-- Navigation Bar -->
         <header role="banner">
             <img src="Images/2K-LOGO.jpg" alt="Y2K Software Logo" />
             <nav id="navigation">
@@ -37,17 +42,26 @@
                 </ul>
             </nav>
         </header>
+        
+        <!-- Main content panel -->
         <main role="main">
             <article>
                 <section class="breadcrumbs"></section>
+                
+                <!-- This section contents gets replaced by JavaScript AJAX-loaded content -->
                 <section class="content">
                     <p>There is a problem loading jQuery.</p>
                 </section>
             </article>
         </main>
+        
+        <!-- Footer -->
         <footer role="contentinfo">
             <section class="footer">
+                <!-- Copyright Statement -->
                 <div class="copy">&copy;2014 - Y2K Software</div>
+                
+                <!-- Legal button and panel -->
                 <div class="legal">
                     <ul class="sliding-panel closed">
                         <li>LEGAL</li>
@@ -58,6 +72,8 @@
                         <li data-page="tos"><a>Terms of Use</a></li>
                     </ul>
                 </div>
+                
+                <!-- Social button and panel -->
                 <div class="social">
                     <ul class="sliding-panel closed">
                         <li>KEEP CONNECTED</li>
