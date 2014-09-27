@@ -280,34 +280,49 @@ a.call-to-action:hover, a.project-link:hover {
   text-decoration: none;
 }
 
-section.projects div.row {
+section div.row {
     border: 3px black ridge;
     margin-bottom: 2em;
     padding: 0.5em;
     box-sizing: border-box;
 }
 
-section.projects .left, section.projects .right {
+section .left, section .right {
     display: inline-block;
     vertical-align: top;
     width: 49%;
 }
 
-section.projects .full-width {
+section .full-width {
     display: block;
     text-align: center;
     vertical-align: middle;
     height: 2em;
 }
 
-section.projects div.row img {
+section div.row img {
     width: 100%;
     border: 1px solid black;
 }
 
-section.projects div.row p {
+section div.row p {
     padding-top: 0;
     line-height: 0.8em;
+}
+
+section.breadcrumbs {
+    padding: 0;
+    font-size: 50%;
+    margin-left: 2em;
+}
+
+section.breadcrumbs ul {
+    list-style-type: none;
+}
+
+section.breadcrumbs ul li {
+    display: inline;
+    margin-left: 0;
 }
 
 @media (min-width: 1200px) {
@@ -345,7 +360,7 @@ section.projects div.row p {
     }
 
     body article section {
-        padding: 24px;
+        padding: 0 24px 24px 24px;
     }
 
     body > footer {
@@ -394,7 +409,7 @@ section.projects div.row p {
     }
 
     body article section {
-        padding: 12px;
+        padding: 0 12px 12px 12px;
     }
 
     body > footer {
@@ -447,7 +462,7 @@ section.projects div.row p {
     }
 
     body article section {
-        padding: 8px;
+        padding: 0 8px 8px 8px;
     }
 
     body > footer {
