@@ -8,18 +8,40 @@ html, body {
     min-height: 100%;
     width: 100%;
     font-family: 'VT323', Consolas;
+    font-size: 24px;
     background: #9bddff;
+}
+
+body > header, body > footer {
+    padding: 1rem;
 }
 
 body > header {
     float: left;
+    height: calc(100% - 5rem);
 }
 
 body > main {
     position: relative;
     display: block;
-    height: 100%;
+    height: calc(100% - 3em);
     padding: 0;
+}
+
+body article {
+    top: 1rem;
+    height: calc(100% - 1rem);
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+
+body article section {
+    padding: 0 1rem 1rem 1rem;
+}
+
+body > footer {
+    width: calc(100% - 2rem);
+    height: 1rem;
 }
 
 body header img {
@@ -38,24 +60,28 @@ nav ul {
 nav ul li {
     position: relative;
     border: 1px solid black;
-    padding: 0.25em 1em;
-    margin: 0.25em 0;
+    padding: 0.25rem 1rem;
+    margin: 0.25rem 0;
     cursor: pointer;
     background: white;
+    background: #cc6600;
     transition: background 0.4s linear;
 }
 
 nav ul li:hover {
     background-color: #cc6600;
+    background: white;
 }
 
 nav ul li.disabled {
     color: #777777;
     background-color: #cccccc;
+    background-color: #cc6633;
 }
 
 nav ul li.disabled:hover {
     background-color: #cccccc;
+    background-color: #cc6633;
 }
 
 body article {
@@ -71,7 +97,8 @@ body article section {
 }
 
 body > footer {
-    position: absolute;
+/*    position: absolute; */
+    position: relative;
     display: block;
     bottom: 0;
 }
@@ -79,6 +106,8 @@ body > footer {
 .selected {
     background-color: #ff9966;
     border-right: 1px solid #ff9966;
+    background-color: white;
+    border-right: 1px solid white;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: -2px 2px 2px #666666;
@@ -87,21 +116,23 @@ body > footer {
 
 .selected.disabled {
     background-color: #cc6633;
+    background-color: #cccccc;
 }
 
 .selected.disabled:hover {
     background-color: #cc6633;
+    background-color: #cccccc;
 }
 
 section h1 {
     font-family: Copperplate, "Copperplate Gothic Light", fantasy;
     font-size: 200%;
     font-weight: bold;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.5rem;
 }
 
 section p {
-    padding: 0.5em 0;
+    padding: 0.5rem 0;
 }
 
 ul {
@@ -109,20 +140,20 @@ ul {
 }
 
 ul li {
-    margin-left: 2em;
+    margin-left: 2rem;
 }
 
 ul ul {
     list-style-type: square;
-    padding-top: 0.5em;
+    padding-top: 0.5rem;
 }
 
 ul ul li {
-    margin-left: 2em;
+    margin-left: 2rem;
 }
 
 address {
-    padding-left: 2em;
+    padding-left: 2rem;
 }
 
 address.mail {
@@ -131,14 +162,14 @@ address.mail {
 
 form fieldset {
     display: inline-block;
-    padding: 1em;
+    padding: 1rem;
     border: 1px solid gray;
     width: 90%;
 }
 
 form label {
     display: inline-block;
-    width: 4em;
+    width: 4rem;
     vertical-align: top;
 }
 
@@ -152,12 +183,12 @@ div.form_input {
 
 #name, #email, #subject, #message {
     background: #9bddff;
-    width: 29em;
+    width: 29rem;
 }
 
 #message {
-    width: 30em;
-    height: 10em;
+    width: 30rem;
+    height: 10rem;
 }
 
 section.footer {
@@ -168,10 +199,13 @@ section.footer {
 
 section.footer ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 section.footer ul li {
     display: inline-block;
+    box-sizing: border-box;
     margin: 0;
     width: 45%;
     cursor: pointer;
@@ -188,27 +222,31 @@ section.footer ul li:first-child {
 }
 
 section.footer ul li img {
-    width: 48px;
-    height: 48px;
+/*    width: 48px;
+    height: 48px; */
+    width: 2em;
+    height: 2em;
 }
 
 section.footer div.copy {
     position: absolute;
     display: inline-block;
     left: 0;
+    width: 10rem;
 }
 
 section.footer div.legal {
     position: absolute;
     display: inline-block;
     width: 10em;
+    left: calc(50% - 5em);
 }
 
 section.footer div.social {
     position: absolute;
     display: inline-block;
     right: 0;
-    width: 10em;
+    width: 10rem;
 }
 
 div.social .sliding-panel, div.legal .sliding-panel {
@@ -237,7 +275,7 @@ section.footer .open li.white:hover {
 }
 
 h3 {
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
     font-size: 140%;
     font-weight: bold;
 }
@@ -261,17 +299,16 @@ a.call-to-action, a.project-link {
   background-image: -ms-linear-gradient(top, #4fb4f7, #2980b9);
   background-image: -o-linear-gradient(top, #4fb4f7, #2980b9);
   background-image: linear-gradient(to bottom, #4fb4f7, #2980b9);
-  -webkit-border-radius: 16;
-  -moz-border-radius: 16;
-  border-radius: 16px;
+  -webkit-border-radius: 0.666rem;
+  -moz-border-radius: 0.666rem;
+  border-radius: 0.666rem;
   text-shadow: 3px 3px 3px #000000;
   -webkit-box-shadow: 2px 2px 3px #000000;
   -moz-box-shadow: 2px 2px 3px #000000;
   box-shadow: 2px 2px 3px #000000;
   font-family: Arial;
   color: #ffffff;
-  font-size: 24px;
-  padding: 12px 24px 12px 24px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   text-decoration: none;
 }
 
@@ -282,8 +319,8 @@ a.call-to-action:hover, a.project-link:hover {
 
 section div.row {
     border: 3px black ridge;
-    margin-bottom: 2em;
-    padding: 0.5em;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
     box-sizing: border-box;
 }
 
@@ -297,7 +334,7 @@ section .full-width {
     display: block;
     text-align: center;
     vertical-align: middle;
-    height: 2em;
+    height: 2rem;
 }
 
 section div.row img {
@@ -307,13 +344,13 @@ section div.row img {
 
 section div.row p {
     padding-top: 0;
-    line-height: 0.8em;
+    line-height: 0.8rem;
 }
 
 section.breadcrumbs {
     padding: 0;
-    font-size: 50%;
-    margin-left: 2em;
+    font-size: 75%;
+    margin-left: 2rem;
 }
 
 section.breadcrumbs ul {
@@ -326,16 +363,11 @@ section.breadcrumbs ul li {
 }
 
 /*
- * Media query targetting large screen sizes such as desktops and laptops.
+ * Media query targetting x-large screen sizes such as desktops and laptops.
  */
-@media (min-width: 1200px) {
+@media screen and (orientation:landscape) and (min-width: 1280px) {
     html, body {
-        font-size: 24px;
-    }
-
-/*    body > header, body > main, body > footer { */
-    body > header, body > footer {
-        padding: 24px;
+/*        font-size: 24px; */
     }
 
     body > header {
@@ -343,7 +375,7 @@ section.breadcrumbs ul li {
     }
 
     body > main {
-        margin: 0 0 0 calc(250px + 24px);
+        margin: 0 0 0 calc(250px + 1rem);
     }
 
     body header img {
@@ -355,39 +387,52 @@ section.breadcrumbs ul li {
         border-radius: 8px;
     }
 
-    body article {
-        top: 24px;
-        height: calc(100% - 96px);
-        margin: 0 24px;
-        border-radius: 24px;
-    }
-
-    body article section {
-        padding: 0 24px 24px 24px;
-    }
-
-    body > footer {
-        width: calc(100% - 48px);
-        height: 24px;
-    }
-
     .selected {
-/*        width: 225px; */
-        width: calc(250px - 24px - 1px);
+        width: calc(250px - 1rem - 1px);
     }
 }
 
 /*
- * Media query targetting medium screen sizes such as tablets and small laptops/chromebooks.
+ * Media query targetting large screen sizes such as larger tablets and small laptops/chromebooks.
  */
-@media (max-width: 1199px) {
+@media screen and (orientation:landscape) and (min-width: 1024px) and (max-width: 1279px) {
     html, body {
-        font-size: 24px;
+        font-size: 18px;
     }
 
-/*    body > header, body > main, body > footer { */
-    body > header, body > footer {
-        padding: 12px;
+    body > header {
+        width: 200px;
+    }
+
+    body > main {
+        margin: 0 0 0 calc(200px + 1rem);
+    }
+
+    body header img {
+        height: 200px;
+        width: 200px;
+    } 
+
+    nav ul li {
+        border-radius: 8px;
+    }
+
+    .selected {
+        width: calc(200px - 1rem - 1px);
+    }
+/*
+    #name, #email, #subject, #message {
+        width: 100%;
+    }
+*/
+}
+
+/*
+ * Media query targetting medium screen sizes such as smaller tablets.
+ */
+@media screen and (orientation:landscape) and (min-width: 720px) and (max-width: 1023px) {
+    html, body {
+        font-size: 12px;
     }
 
     body > header {
@@ -395,55 +440,34 @@ section.breadcrumbs ul li {
     }
 
     body > main {
-        margin: 0 0 0 calc(150px + 24px);
+        margin: 0 0 0 calc(150px + 1rem);
     }
 
     body header img {
         height: 150px;
         width: 150px;
-    }
+    } 
 
     nav ul li {
-        border-radius: 6px;
-    }
-
-    body article {
-        top: 12px;
-        height: calc(100% - 48px);
-        margin: 0 12px;
-        border-radius: 12px;
-    }
-
-    body article section {
-        padding: 0 12px 12px 12px;
-    }
-
-    body > footer {
-        width: calc(100% - 24px);
-        height: 12px;
+        border-radius: 8px;
     }
 
     .selected {
-/*        width: 87px; */
-        width: calc(150px - 24px - 1px);
+        width: calc(150px - 1rem - 1px);
     }
-
+/*
     #name, #email, #subject, #message {
         width: 100%;
     }
+*/
 }
 
 /*
  * Media query targetting small screen sizes such as smartphones in landscape mode.
  */
-@media (max-height: 500px) {
+@media screen and (orientation:landscape) and (max-width: 720px) {
     html, body {
         font-size: 12px;
-    }
-
-/*    body > header, body > main, body > footer { */
-    body > header, body > footer {
-        padding: 8px;
     }
 
     body > header {
@@ -451,7 +475,7 @@ section.breadcrumbs ul li {
     }
 
     body > main {
-        margin: 0 0 0 calc(80px + 12px);
+        margin: 0 0 0 calc(80px + 1rem);
     }
 
     body header img {
@@ -463,24 +487,84 @@ section.breadcrumbs ul li {
         border-radius: 6px;
     }
 
-    body article {
-        top: 8px;
-        height: calc(100% - 32px);
-        margin: 0 8px;
-        border-radius: 8px;
+    .selected {
+        width: calc(80px - 1rem - 1px);
+    }
+}
+
+/*
+ * Media query targetting small screen sizes such as smartphones in portrait mode.
+ */
+@media screen and (orientation:portrait) and (max-width: 719px) /* and (max-height: 720px) */ {
+    html, body {
+        font-size: 12px;
     }
 
-    body article section {
-        padding: 0 8px 8px 8px;
+    body > header {
+        width: 80px;
     }
 
-    body > footer {
-        width: calc(100% - 16px);
-        height: 8px;
+    body > main {
+        margin: 0 0 0 calc(80px + 1rem);
+    }
+
+    body header img {
+        height: 80px;
+        width: 80px;
+    }
+
+    nav ul li {
+        border-radius: 6px;
     }
 
     .selected {
-/*        width: 71px; */
-        width: calc(80px - 12px - 1px);
+        width: calc(80px - 1rem - 1px);
+    }
+
+    section.footer div.copy, section.footer div.legal, section.footer div.social {
+        width: 9rem;
+    }
+    
+    section .left, section .right {
+        display: block;
+        width: 100%;
+    }
+
+    #name, #email, #subject, #message {
+        width: 100%;
+    }
+}
+
+/*
+ * Media query targetting large screen sizes such as tablets and chromebooks in portrait mode.
+ */
+@media screen and (orientation:portrait) and (min-width: 720px) {
+    html, body {
+        font-size: 18px;
+    }
+
+    body > header {
+        width: 200px;
+    }
+
+    body > main {
+        margin: 0 0 0 calc(200px + 1rem);
+    }
+
+    body header img {
+        height: 200px;
+        width: 200px;
+    }
+
+    nav ul li {
+        border-radius: 8px;
+    }
+
+    .selected {
+        width: calc(200px - 1rem - 1px);
+    }
+
+    #name, #email, #subject, #message {
+        width: 100%;
     }
 }

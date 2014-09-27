@@ -326,7 +326,7 @@ function showSocial(duration) {
     $socialClosed.stop(true, true);
     
     var height = $socialClosed.outerHeight();
-    var width = $socialClosed.outerWidth();
+/*    var width = $socialClosed.outerWidth(); */
     $socialOpen.show();
     var newHeight = $socialOpen.outerHeight();
     var delta = newHeight - height;
@@ -336,8 +336,8 @@ function showSocial(duration) {
         position: "absolute",
         top: 0,
         left: 0,
-        height: height,
-        width: width
+        height: height
+/*        width: width */
     });
     $socialClosed.hide();
     
@@ -385,7 +385,7 @@ function showLegal(duration) {
     $legalClosed.stop(true, true);
     
     var height = $legalClosed.outerHeight();
-    var width = $legalClosed.outerWidth();
+/*    var width = $legalClosed.outerWidth(); */
     $legalOpen.show();
     var newHeight = $legalOpen.outerHeight();
     var delta = newHeight - height;
@@ -395,8 +395,8 @@ function showLegal(duration) {
         position: "absolute",
         top: 0,
         left: 0,
-        height: height,
-        width: width
+        height: height
+/*        width: width */
     });
     $legalClosed.hide();
     
