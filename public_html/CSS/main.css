@@ -325,6 +325,9 @@ section.breadcrumbs ul li {
     margin-left: 0;
 }
 
+/*
+ * Media query targetting large screen sizes such as desktops and laptops.
+ */
 @media (min-width: 1200px) {
     html, body {
         font-size: 24px;
@@ -374,6 +377,9 @@ section.breadcrumbs ul li {
     }
 }
 
+/*
+ * Media query targetting medium screen sizes such as tablets and small laptops/chromebooks.
+ */
 @media (max-width: 1199px) {
     html, body {
         font-size: 24px;
@@ -427,6 +433,9 @@ section.breadcrumbs ul li {
     }
 }
 
+/*
+ * Media query targetting small screen sizes such as smartphones in landscape mode.
+ */
 @media (max-height: 500px) {
     html, body {
         font-size: 12px;

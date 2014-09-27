@@ -3,6 +3,7 @@
     Author     : Konstantin Koton
 */
 
+// This JavaScript Object links pageIDs and URLs
 var CONTENT_PAGES = {
     home: "Content/welcome.html",
     bio: "Content/biography.html",
@@ -14,6 +15,7 @@ var CONTENT_PAGES = {
     tos: "Legal/termsofuse.html"
 };
 
+// This JavaScript Object links pageIDs and breadcrumbs
 var BREADCRUMBS = {
     home: "Home",
     bio: "Home/Biography",
@@ -25,18 +27,21 @@ var BREADCRUMBS = {
     tos: "Home/Terms of Use"
 };
 
+// This JavaScript Object links breadcrumbs to pageIDs (Used in the getBreadcrumbs() function)
 var BREAD_TO_CONTENT = {
     "Home": "home"
 };
 
+// Base title for all pages
 var BASE_TITLE = "Konstantin's Portfolio Site";
 
 var mouseTimer = null;      // Used for mouseenter/mouseleave timers
 var slider = null;          // Holds the bxSlider instance
 
+// This anonymous function gets called by jQuery when the DOM is finished loading and the ready to be manipulated
 $(document).ready(function() {
     var $panel = $("main > article");
-    loadPage(CONTENT_PAGES.home, $panel, "home");
+    loadPage(CONTENT_PAGES.home, $panel, "home");       // Load the home/welcome page
 
     // Initialize jScrollPane plugin
     var radius = parseInt($panel.css("border-top-right-radius"));
@@ -50,7 +55,10 @@ $(document).ready(function() {
     // Initialize jQuery placeholder plugin
     $("input, textarea").placeholder();
     
+    // Ensure "HOME" link is selected at first load
     $("#navigation li").first().addClass("selected");
+    
+    // This click handler handles the navigation button clicks
     $("#navigation li").click(function() {
         var $this = $(this);
         var $previous = $this.siblings().filter(".selected");
@@ -61,6 +69,7 @@ $(document).ready(function() {
             return;
         }
         
+        // If there is no nav button selected, just load the page, no need to animate hiding the panel
         if ($previous.length === 0) {
             $this.addClass("selected");
             var page = $this.data("page");
@@ -70,7 +79,10 @@ $(document).ready(function() {
             return;
         }
 
+        // Ensure that all the nav links are disabled while animating panel changes
         $this.siblings().addBack().addClass("disabled");
+        
+        // Hide the panel, then show the panel after a pre-defined amount of time
         hidePanel($previous, $panel, timeout);
         setTimeout(function() {
             $this.addClass("selected");
@@ -78,16 +90,18 @@ $(document).ready(function() {
             showPannel($this, $panel, timeout);
         }, timeout*1.1);
 
-        // Pick out the page, determine the URL and load the page as well as change the page's title
+        // Pick out the page, determine the URL and load the page as well as change the page's title and animate the panel transition
         var page = $this.data("page");
         var $url = CONTENT_PAGES[page];
         loadPage($url, $panel, page);
         
+        // Re-enable the nav buttons once animation finished
         setTimeout(function() {
             $this.siblings().addBack().removeClass("disabled");
         }, timeout*2.1);
     });
     
+    // This click handler deals with loading the Legal pages (Terms of Use, and Privacy Policy)
     $("div.legal li").click(function() {
         var $this = $(this);
         var page = $this.data("page");
@@ -98,10 +112,13 @@ $(document).ready(function() {
         }
     });
     
+    // If user clicks on the "KEEP CONNECTED" button, immediately expand the Social panel
     $("div.social ul.sliding-panel.closed").click(function() {
         showSocial(1000);
     });
     
+    // If user's mouse hovers over the "KEEP CONNECTED" button for more than 0.3 seconds, also expand the Social panel.
+    // If mouse leaves the button before 0.3 seconds elapsed, just stop the timer.
     $("div.social ul.sliding-panel.closed:not(:animated)").mouseenter(function(){
         mouseTimer = setTimeout(function() {
             showSocial(1000);
@@ -110,6 +127,8 @@ $(document).ready(function() {
         clearTimeout(mouseTimer);
     });
 
+    // If user's mouse leaves the expanded Social panel for more than 0.5 seconds, collapse the panel.
+    // If mouse re-enters the pannel before 0.5 seconds elapsed, just stop the timer.
     $("div.social ul.sliding-panel.open:not(:animated)").mouseleave(function() {
         mouseTimer = setTimeout(function() {
             hideSocial(1000);
@@ -118,10 +137,13 @@ $(document).ready(function() {
         clearTimeout(mouseTimer);
     });
 
+    // If user clicks on the "LEGAL" button, immediately expand the Legal panel
     $("div.legal ul.sliding-panel.closed").click(function() {
         showLegal(1000);
     });
     
+    // If user's mouse hovers over the "LEGAL" button for more than 0.3 seconds, also expand the Legal panel.
+    // If mouse leaves the button before 0.3 seconds elapsed, just stop the timer.
     $("div.legal ul.sliding-panel.closed:not(:animated)").mouseenter(function(){
         mouseTimer = setTimeout(function() {
             showLegal(1000);
@@ -130,6 +152,8 @@ $(document).ready(function() {
         clearTimeout(mouseTimer);
     });
 
+    // If user's mouse leaves the expanded Legal panel for more than 0.5 seconds, collapse the panel.
+    // If mouse re-enters the pannel before 0.5 seconds elapsed, just stop the timer.
     $("div.legal ul.sliding-panel.open:not(:animated)").mouseleave(function() {
         mouseTimer = setTimeout(function() {
             hideLegal(1000);
@@ -235,6 +259,9 @@ function showPannel($nav, $panel, timeout) {
     }, timeout);
 }
 
+/*
+ * This function handles AJAX loading of pages and initializes any jQuery event handlers/plugins for the newly loaded content
+ */
 function loadPage($url, $container, pageID) {
     $.get($url, function(data) {
         var $data = $(data);
@@ -287,6 +314,9 @@ function loadPage($url, $container, pageID) {
     });
 }
 
+/*
+ * This function expands the "KEEP CONNECTED" button into the Social pannel
+ */
 function showSocial(duration) {
     var $socialClosed = $("div.social ul.sliding-panel.closed");
     var $socialOpen = $("div.social ul.sliding-panel.open");
@@ -317,6 +347,9 @@ function showSocial(duration) {
     }, duration);
 }
 
+/*
+ * This function collapses the Social pannel into the "KEEP CONNECTED" button
+ */
 function hideSocial(duration) {
     var $socialClosed = $("div.social ul.sliding-panel.closed");
     var $socialOpen = $("div.social ul.sliding-panel.open");
@@ -340,6 +373,9 @@ function hideSocial(duration) {
     });
 }
 
+/*
+ * This function expands the "LEGAL" button into the Legal pannel
+ */
 function showLegal(duration) {
     var $legalClosed = $("div.legal ul.sliding-panel.closed");
     var $legalOpen = $("div.legal ul.sliding-panel.open");
@@ -370,6 +406,9 @@ function showLegal(duration) {
     }, duration);
 }
 
+/*
+ * This function collapses the Social pannel into the "LEGAL" button
+ */
 function hideLegal(duration) {
     var $legalClosed = $("div.legal ul.sliding-panel.closed");
     var $legalOpen = $("div.legal ul.sliding-panel.open");
@@ -393,6 +432,9 @@ function hideLegal(duration) {
     });
 }
 
+/*
+ * This function parses the breadcrumb data for a page belonging to pageID, creates new DOM elements for the breadcrumb list and returns the new DOM fragment
+ */
 function getBreadcrumbs(pageID) {
     var $ul, $li, $a;
     var url;
@@ -409,7 +451,7 @@ function getBreadcrumbs(pageID) {
             $a = $("<a />").attr({ href: url, "data-page": curPageID }).text(crumbs[i]);
             $li.append($a);
 
-            $a = $("<a />").text(" > ");
+            $a = $("<a />").html(" &gt; ");
             $li.append($a);
         } else {
             $li.text(crumbs[i]);
