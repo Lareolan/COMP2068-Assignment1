@@ -44,7 +44,7 @@ var slider = null;          // Holds the bxSlider instance
 // This anonymous function gets called by jQuery when the DOM is finished loading and the ready to be manipulated
 $(document).ready(function() {
     var $panel = $("main > article");
-    loadPage(CONTENT_PAGES.bio, $panel, "home");       // Load the home/welcome page
+    loadPage(CONTENT_PAGES.home, $panel, "home");       // Load the home/welcome page
 
     // Initialize jScrollPane plugin
     var radius = parseInt($panel.css("border-top-right-radius"));
