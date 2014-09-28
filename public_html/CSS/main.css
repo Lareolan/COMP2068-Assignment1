@@ -353,7 +353,7 @@ section div.row p {
 section.breadcrumbs {
     padding: 0;
     font-size: 75%;
-    margin-left: 2rem;
+    margin-left: 1.25rem;
 }
 
 section.breadcrumbs ul {
@@ -365,14 +365,115 @@ section.breadcrumbs ul li {
     margin-left: 0;
 }
 
+.biography div.left-side, .biography div.right-side {
+    padding-bottom: 2rem;
+}
+
+.biography div.left-side {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 60%;
+}
+
+.biography div.right-side {
+    display: inline-block;
+    width: calc(40% - 2rem);
+    padding-left: 2rem;
+}
+
+.biography div.left-side h3 {
+    margin: 0;
+}
+
+.biography aside.photo {
+    text-align: center;
+}
+
+.biography aside.photo img {
+    height: 200px;
+    width: 145px;
+}
+
+.biography div.left-side .name {
+    font-size: 140%;
+    font-weight: bold;
+}
+
+.biography div.left-side label {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 30%;
+}
+
+.biography div.left-side .experience label {
+    margin-top: 4rem;
+}
+
+.biography div.left-side .experience > div {
+    display: inline-block;
+    width: 70%;
+}
+
+.biography div.left-side .experience > div li {
+    margin-left: 1rem;
+}
+
+.biography div.left-side .identity,
+.biography div.left-side .experience {
+    margin-bottom: 1rem;
+}
+
+.biography div.left-side .contact {
+    margin-bottom: 2rem;    
+}
+
+.biography div.left-side .identity .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.biography div.left-side .identity .title {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #9bddff;    
+    padding: 0;
+}
+
+.biography h3 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.biography h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #9bddff;
+}
+
+.biography div.right-side .skill {
+    padding: 0;
+}
+
+.biography div.right-side .skill-level {
+    font-style: italic;
+    padding-top: 0;
+}
+
+.biography div.right-side h3.interests {
+    margin-top: 2rem;
+}
+
+.biography div.right-side .interest {
+    padding: 0;
+}
+
 /*
  * Media query targetting x-large screen sizes such as desktops and laptops.
  */
 @media screen and (orientation:landscape) and (min-width: 1280px) {
-    html, body {
-/*        font-size: 24px; */
-    }
-
     body > header {
         width: 250px;
     }
@@ -493,6 +594,11 @@ section.breadcrumbs ul li {
     .selected {
         width: calc(80px - 1rem - 1px);
     }
+
+    .biography aside.photo img {
+        height: 50%;
+        width: 50%;
+    }
 }
 
 /*
@@ -535,6 +641,11 @@ section.breadcrumbs ul li {
 
     #name, #email, #subject, #message {
         width: 100%;
+    }
+
+    .biography aside.photo img {
+        height: 50%;
+        width: 50%;
     }
 }
 
